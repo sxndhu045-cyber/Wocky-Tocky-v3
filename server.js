@@ -32,6 +32,10 @@ app.post("/api/register",(req,res)=>{
   res.json({ok:true,userId});
 });
 
+app.get("/", (req, res) => {
+  res.send("Wocky Tocky Server Running!");
+});
+
 app.post("/api/login",(req,res)=>{
   const {userId,password}=req.body,u=users.get(userId);
   if(!u||u.password!==password)return res.status(401).json({error:"Invalid User ID or password."});
